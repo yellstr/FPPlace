@@ -1,0 +1,12 @@
+PODS:
+  - FoursquareAPIClient (2.0.0)
+
+DEPENDENCIES:
+  - FoursquareAPIClient (~> 2.0)
+
+SPEC CHECKSUMS:
+  FoursquareAPIClient: 243eb011fd35e223883086fbea993b5eac2de70c
+
+PODFILE CHECKSUM: 872506672bfbd854b0483dd8873153ee89805f0d
+
+COCOAPODS: 1.1.1

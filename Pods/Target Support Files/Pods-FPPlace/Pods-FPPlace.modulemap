@@ -1,0 +1,6 @@
+framework module Pods_FPPlace {
+  umbrella header "Pods-FPPlace-umbrella.h"
+
+  export *
+  module * { export * }
+}
