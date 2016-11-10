@@ -14,17 +14,6 @@ struct Venue {
     let name: String?
     let address: String?
     let id: String?
-    
-    func contactInfo () -> String {
-        var result = ""
-        if address != nil {
-            result += "Address: \(address!) "
-        }
-        if phone != nil {
-            result += "Phone: \(phone)"
-        }
-        return result
-    }
 }
 
 class MainTableViewController: UITableViewController, CLLocationManagerDelegate {
@@ -69,7 +58,7 @@ class MainTableViewController: UITableViewController, CLLocationManagerDelegate 
         } else {
             let result = tableView.dequeueReusableCell(withIdentifier: "venueCell")! as! VenueTableViewCell
             result.topLabel?.text = venues[indexPath.row - 1].name
-            result.bottomLabel?.text = venues[indexPath.row - 1].contactInfo()
+            result.bottomLabel?.text = venues[indexPath.row - 1].address
             return result
         }
     }
