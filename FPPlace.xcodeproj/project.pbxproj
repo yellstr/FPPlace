@@ -14,6 +14,10 @@
 		722AD2C81DD5005F001E400A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 722AD2C71DD5005F001E400A /* Assets.xcassets */; };
 		722AD2CB1DD5005F001E400A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 722AD2C91DD5005F001E400A /* LaunchScreen.storyboard */; };
 		722AD2DC1DD52400001E400A /* VenueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722AD2DB1DD52400001E400A /* VenueTableViewCell.swift */; };
+		722B286B1DD65B5A00DD889A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726182421DD62993008C81E3 /* Model.swift */; };
+		722B286C1DD65B5C00DD889A /* StoredVenue+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726182441DD62C5B008C81E3 /* StoredVenue+CoreDataClass.swift */; };
+		722B286D1DD65B5F00DD889A /* StoredVenue+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726182451DD62C5B008C81E3 /* StoredVenue+CoreDataProperties.swift */; };
+		722B286E1DD65B6200DD889A /* FPPlace.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 722AD2C41DD5005F001E400A /* FPPlace.xcdatamodeld */; };
 		7261823F1DD533E0008C81E3 /* VenueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7261823E1DD533E0008C81E3 /* VenueViewController.swift */; };
 		726182431DD62993008C81E3 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726182421DD62993008C81E3 /* Model.swift */; };
 		726182461DD62C5B008C81E3 /* StoredVenue+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726182441DD62C5B008C81E3 /* StoredVenue+CoreDataClass.swift */; };
@@ -353,7 +357,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				722B286B1DD65B5A00DD889A /* Model.swift in Sources */,
+				722B286E1DD65B6200DD889A /* FPPlace.xcdatamodeld in Sources */,
 				726182511DD6385C008C81E3 /* MessagesViewController.swift in Sources */,
+				722B286D1DD65B5F00DD889A /* StoredVenue+CoreDataProperties.swift in Sources */,
+				722B286C1DD65B5C00DD889A /* StoredVenue+CoreDataClass.swift in Sources */,
 				726182621DD63B21008C81E3 /* VenuesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -579,6 +587,7 @@
 				7261825D1DD6385C008C81E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

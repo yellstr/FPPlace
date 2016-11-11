@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let queryArray = urlString.components(separatedBy:"/")
         
         if queryArray.count > 4 {
-            externalVenue = Venue(name: queryArray[2], address: queryArray[3], id: queryArray[4])
+            externalVenue = Venue(name: queryArray[2].removingPercentEncoding, address: queryArray[3].removingPercentEncoding, id: queryArray[4].removingPercentEncoding)
         }
         return true
     }

@@ -13,6 +13,8 @@ class MessagesViewController: MSMessagesAppViewController, VenuesTableViewContro
     
     @IBOutlet var openButton: UIButton!
     
+    private var url2open: URL?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -70,7 +72,9 @@ class MessagesViewController: MSMessagesAppViewController, VenuesTableViewContro
             controller.didMove(toParentViewController: self)
        }
         else {
-        
+            guard let messageURL = conversation.selectedMessage?.url else { return }
+            url2open = messageURL
+            openButton.setTitle("Open Venue", for: .normal)
         }
     }
     
@@ -83,10 +87,9 @@ class MessagesViewController: MSMessagesAppViewController, VenuesTableViewContro
         return controller
     }
 
-    func didSelectRow(_ row: Int) {
+    func didSelect(_ venue: Venue) {
         guard let conversation = activeConversation else { fatalError("Expected a conversation") }
-        let messageCaption = "Venue \(row)"
-        let message = composeMessage(with: messageCaption, session: conversation.selectedMessage?.session)
+        let message = composeMessage(with: venue, session: conversation.selectedMessage?.session)
         
         // Add the message to the conversation.
         conversation.insert(message) { error in
@@ -98,19 +101,24 @@ class MessagesViewController: MSMessagesAppViewController, VenuesTableViewContro
 
     }
     
-    fileprivate func composeMessage(with caption: String, session: MSSession? = nil) -> MSMessage {
+    fileprivate func composeMessage(with venue: Venue, session: MSSession? = nil) -> MSMessage {
         let layout = MSMessageTemplateLayout()
-        layout.caption = caption
+        layout.caption = venue.name
         
         let message = MSMessage(session: session ?? MSSession())
-        message.url = URL(string: "fpplace://Stadium/Arcadium/1234567890")
+        let string = "/\(venue.name!)/\(venue.address!)/\(venue.id!)"
+        message.url = URL(string: string.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed)!)
         message.layout = layout
         
         return message
     }
     
     @IBAction func openButtonTap(_ sender: UIButton) {
-        
+        guard let url = url2open else {return}
+        let myURL = URL(string: "fpplace:/" + url.absoluteString)
+         extensionContext?.open(myURL!, completionHandler: { (success) in
+            
+        })
     }
     
     override func didResignActive(with conversation: MSConversation) {

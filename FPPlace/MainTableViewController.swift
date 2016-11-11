@@ -10,12 +10,6 @@ import UIKit
 import FoursquareAPIClient
 import CoreLocation
 
-struct Venue {
-    let name: String?
-    let address: String?
-    let id: String?
-}
-
 class MainTableViewController: UITableViewController, CLLocationManagerDelegate {
 
     let clientID = "T52G4H54GLFUFEUZO34QNFNBS5WRLWUANOESHG5UW10UPEGE"

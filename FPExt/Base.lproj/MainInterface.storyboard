@@ -59,8 +59,44 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="aCell" textLabel="Mdr-ZU-ZE8" style="IBUITableViewCellStyleDefault" id="HgA-J6-6B2">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="topCell" id="azk-Vf-pGc" customClass="TopVenuesTableViewCell" customModule="FPExt" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="azk-Vf-pGc" id="CgW-M8-zIj">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share recently viewed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbG-di-sPf">
+                                            <rect key="frame" x="8" y="11.5" width="176" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="7Hc-K4-UA7"/>
+                                                <constraint firstAttribute="width" constant="176" id="Iip-jA-1XS"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qyn-i8-jN6">
+                                            <rect key="frame" x="192" y="7" width="175" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="175" id="lCC-wu-aNu"/>
+                                            </constraints>
+                                            <state key="normal" title="Go to FPPlace app &gt;"/>
+                                            <connections>
+                                                <action selector="goToApp:" destination="azk-Vf-pGc" eventType="touchUpInside" id="YeB-tz-uyl"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="dbG-di-sPf" firstAttribute="centerY" secondItem="CgW-M8-zIj" secondAttribute="centerY" id="82W-Nm-Gdx"/>
+                                        <constraint firstItem="dbG-di-sPf" firstAttribute="leading" secondItem="CgW-M8-zIj" secondAttribute="leadingMargin" id="NnA-qb-dqa"/>
+                                        <constraint firstItem="qyn-i8-jN6" firstAttribute="centerY" secondItem="CgW-M8-zIj" secondAttribute="centerY" id="kft-zi-1fs"/>
+                                        <constraint firstAttribute="trailing" secondItem="qyn-i8-jN6" secondAttribute="trailing" constant="8" id="xaF-Sp-2Rn"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="aCell" textLabel="Mdr-ZU-ZE8" style="IBUITableViewCellStyleDefault" id="HgA-J6-6B2">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HgA-J6-6B2" id="8lK-yd-Ve8">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -85,7 +121,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Dg-ky-B2K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="778" y="117"/>
+            <point key="canvasLocation" x="776.79999999999995" y="116.49175412293854"/>
         </scene>
     </scenes>
 </document>

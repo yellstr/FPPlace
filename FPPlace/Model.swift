@@ -9,14 +9,32 @@
 import Foundation
 import CoreData
 
+struct Venue {
+    let name: String?
+    let address: String?
+    let id: String?
+}
+
+class PersistentContainer: NSPersistentContainer {
+    override class func defaultDirectoryURL() -> URL {
+        var url = super.defaultDirectoryURL()
+        if let newURL =
+            FileManager.default.containerURL(
+                forSecurityApplicationGroupIdentifier: "group.dev.yellstr.fptest") {
+            url = newURL
+        }
+        return url
+    }
+}
+
 class Model {
     static let sharedInstance = Model()
     var context: NSManagedObjectContext {
         return persistentContainer.viewContext
     }
 
-    lazy private var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "FPPlace")
+    lazy private var persistentContainer: PersistentContainer = {
+        let container = PersistentContainer(name: "FPPlace")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")

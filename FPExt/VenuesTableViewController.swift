@@ -9,12 +9,12 @@
 import UIKit
 
 protocol VenuesTableViewControllerDelegate {
-    func didSelectRow(_ row: Int)
+    func didSelect(_ venue: Venue)
 }
 
 class VenuesTableViewController: UITableViewController {
 
-    let venues = ["Venue 1", "Venue 2", "Venue 3", "Venue 4", "Venue 5"]
+    var venues = Model.sharedInstance.retrieveVenues()
     
     var delegate: VenuesTableViewControllerDelegate?
     
@@ -23,19 +23,39 @@ class VenuesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return venues.count
+        return venues.count + 1
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "topCell", for: indexPath) as! TopVenuesTableViewCell
+            if let parentVC = parent as? MessagesViewController {
+                cell.extensionContext = parentVC.extensionContext
+            }
+            return cell
+        }
         let cell = tableView.dequeueReusableCell(withIdentifier: "aCell", for: indexPath)
-
-        cell.textLabel?.text = venues[indexPath.row]
-
+        cell.textLabel?.text = venues[indexPath.row - 1].name
         return cell
     }
     
     override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-        delegate?.didSelectRow(indexPath.row)
+        if indexPath.row > 0 {
+            delegate?.didSelect(venues[indexPath.row - 1])
+        }
         return false
+    }
+}
+
+
+class TopVenuesTableViewCell : UITableViewCell {
+    
+    var extensionContext: NSExtensionContext?
+    
+    @IBAction func goToApp(_ sender: UIButton) {
+        let myURL = URL(string: "fpplace:/" + "/dummy/")
+        extensionContext?.open(myURL!, completionHandler: { (success) in
+            
+        })
     }
 }
