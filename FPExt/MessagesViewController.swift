@@ -1,0 +1,149 @@
+//
+//  MessagesViewController.swift
+//  FPExt
+//
+//  Created by Alim Osipov on 11.11.16.
+//  Copyright © 2016 Alim Osipov. All rights reserved.
+//
+
+import UIKit
+import Messages
+
+class MessagesViewController: MSMessagesAppViewController, VenuesTableViewControllerDelegate {
+    
+    @IBOutlet var openButton: UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Conversation Handling
+    
+    override func willBecomeActive(with conversation: MSConversation) {
+        super.willBecomeActive(with: conversation)
+        
+        // Present the view controller appropriate for the conversation and presentation style.
+        presentViewController(for: conversation, with: presentationStyle)
+    }
+    
+    // MARK: MSMessagesAppViewController
+    
+    override func willTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
+        guard let conversation = activeConversation else { fatalError("Expected an active converstation") }
+        
+        // Present the view controller appropriate for the conversation and presentation style.
+        presentViewController(for: conversation, with: presentationStyle)
+    }
+    
+    // MARK: Child view controller presentation
+    
+    private func presentViewController(for conversation: MSConversation, with presentationStyle: MSMessagesAppPresentationStyle) {
+        // Remove any existing child controllers.
+        for child in childViewControllers {
+            child.willMove(toParentViewController: nil)
+            child.view.removeFromSuperview()
+            child.removeFromParentViewController()
+        }
+
+        // Determine if we need to show venues list
+        if presentationStyle == .compact {
+            // Show a list of previously created ice creams.
+            let controller = instantiateVenuesController()
+            // Embed the new controller.
+            addChildViewController(controller)
+            
+            controller.view.frame = view.bounds
+            controller.view.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(controller.view)
+            
+            controller.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+            controller.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+            controller.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+            controller.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+            
+            controller.didMove(toParentViewController: self)
+       }
+        else {
+        
+        }
+    }
+    
+    private func instantiateVenuesController() -> UIViewController {
+        // Instantiate a `IceCreamsViewController` and present it.
+        guard let controller = storyboard?.instantiateViewController(withIdentifier: "venuesVC") as? VenuesTableViewController else { fatalError("Unable to instantiate a controller from the storyboard") }
+        
+        controller.delegate = self
+        
+        return controller
+    }
+
+    func didSelectRow(_ row: Int) {
+        guard let conversation = activeConversation else { fatalError("Expected a conversation") }
+        let messageCaption = "Venue \(row)"
+        let message = composeMessage(with: messageCaption, session: conversation.selectedMessage?.session)
+        
+        // Add the message to the conversation.
+        conversation.insert(message) { error in
+            if let error = error {
+                print(error)
+            }
+        }
+        dismiss()
+
+    }
+    
+    fileprivate func composeMessage(with caption: String, session: MSSession? = nil) -> MSMessage {
+        let layout = MSMessageTemplateLayout()
+        layout.caption = caption
+        
+        let message = MSMessage(session: session ?? MSSession())
+        message.url = URL(string: "fpplace://Stadium/Arcadium/1234567890")
+        message.layout = layout
+        
+        return message
+    }
+    
+    @IBAction func openButtonTap(_ sender: UIButton) {
+        
+    }
+    
+    override func didResignActive(with conversation: MSConversation) {
+        // Called when the extension is about to move from the active to inactive state.
+        // This will happen when the user dissmises the extension, changes to a different
+        // conversation or quits Messages.
+        
+        // Use this method to release shared resources, save user data, invalidate timers,
+        // and store enough state information to restore your extension to its current state
+        // in case it is terminated later.
+    }
+   
+    override func didReceive(_ message: MSMessage, conversation: MSConversation) {
+        // Called when a message arrives that was generated by another instance of this
+        // extension on a remote device.
+        
+        // Use this method to trigger UI updates in response to the message.
+    }
+    
+    override func didStartSending(_ message: MSMessage, conversation: MSConversation) {
+        // Called when the user taps the send button.
+    }
+    
+    override func didCancelSending(_ message: MSMessage, conversation: MSConversation) {
+        // Called when the user deletes the message without sending it.
+    
+        // Use this to clean up state related to the deleted message.
+    }
+    
+    override func didTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
+        // Called after the extension transitions to a new presentation style.
+    
+        // Use this method to finalize any behaviors associated with the change in presentation style.
+    }
+
+}

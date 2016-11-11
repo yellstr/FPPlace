@@ -14,25 +14,42 @@
 		722AD2C81DD5005F001E400A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 722AD2C71DD5005F001E400A /* Assets.xcassets */; };
 		722AD2CB1DD5005F001E400A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 722AD2C91DD5005F001E400A /* LaunchScreen.storyboard */; };
 		722AD2DC1DD52400001E400A /* VenueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722AD2DB1DD52400001E400A /* VenueTableViewCell.swift */; };
+		7261823F1DD533E0008C81E3 /* VenueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7261823E1DD533E0008C81E3 /* VenueViewController.swift */; };
+		726182431DD62993008C81E3 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726182421DD62993008C81E3 /* Model.swift */; };
+		726182461DD62C5B008C81E3 /* StoredVenue+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726182441DD62C5B008C81E3 /* StoredVenue+CoreDataClass.swift */; };
+		726182471DD62C5B008C81E3 /* StoredVenue+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726182451DD62C5B008C81E3 /* StoredVenue+CoreDataProperties.swift */; };
+		7261824E1DD6385C008C81E3 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7261824D1DD6385C008C81E3 /* Messages.framework */; };
+		726182511DD6385C008C81E3 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726182501DD6385C008C81E3 /* MessagesViewController.swift */; };
+		726182541DD6385C008C81E3 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 726182521DD6385C008C81E3 /* MainInterface.storyboard */; };
+		726182561DD6385C008C81E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 726182551DD6385C008C81E3 /* Assets.xcassets */; };
+		7261825A1DD6385C008C81E3 /* FPExt.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7261824C1DD6385C008C81E3 /* FPExt.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		726182621DD63B21008C81E3 /* VenuesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726182611DD63B21008C81E3 /* VenuesTableViewController.swift */; };
 		C21D30A45598AFC3D8E68992 /* Pods_FPPlace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDA6798C775E745C2DC69A2D /* Pods_FPPlace.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		722AD2D71DD50FA2001E400A /* PBXContainerItemProxy */ = {
+		726182581DD6385C008C81E3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 722AD2D21DD50FA2001E400A /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 61D0B9A89ECA77FE4C49A2BB5F4EAE9A;
-			remoteInfo = FoursquareAPIClient;
-		};
-		722AD2D91DD50FA2001E400A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 722AD2D21DD50FA2001E400A /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 596079DA564704F47A38AAF4DBFD1DC7;
-			remoteInfo = "Pods-FPPlace";
+			containerPortal = 722AD2B21DD5005F001E400A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7261824B1DD6385C008C81E3;
+			remoteInfo = FPExt;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7261825E1DD6385C008C81E3 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7261825A1DD6385C008C81E3 /* FPExt.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		015B7C7DE8357A35349370E9 /* Pods-FPPlace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FPPlace.release.xcconfig"; path = "Pods/Target Support Files/Pods-FPPlace/Pods-FPPlace.release.xcconfig"; sourceTree = "<group>"; };
@@ -45,8 +62,20 @@
 		722AD2C71DD5005F001E400A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		722AD2CA1DD5005F001E400A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		722AD2CC1DD5005F001E400A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		722AD2D21DD50FA2001E400A /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		722AD2DB1DD52400001E400A /* VenueTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueTableViewCell.swift; sourceTree = "<group>"; };
+		7261823E1DD533E0008C81E3 /* VenueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueViewController.swift; sourceTree = "<group>"; };
+		726182421DD62993008C81E3 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		726182441DD62C5B008C81E3 /* StoredVenue+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StoredVenue+CoreDataClass.swift"; sourceTree = "<group>"; };
+		726182451DD62C5B008C81E3 /* StoredVenue+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StoredVenue+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7261824C1DD6385C008C81E3 /* FPExt.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FPExt.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7261824D1DD6385C008C81E3 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
+		726182501DD6385C008C81E3 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		726182531DD6385C008C81E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		726182551DD6385C008C81E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		726182571DD6385C008C81E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7261825F1DD638F8008C81E3 /* FPPlace.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FPPlace.entitlements; sourceTree = "<group>"; };
+		726182601DD6391E008C81E3 /* FPExt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FPExt.entitlements; sourceTree = "<group>"; };
+		726182611DD63B21008C81E3 /* VenuesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenuesTableViewController.swift; sourceTree = "<group>"; };
 		DDA6798C775E745C2DC69A2D /* Pods_FPPlace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FPPlace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -59,6 +88,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		726182491DD6385C008C81E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7261824E1DD6385C008C81E3 /* Messages.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -66,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				722AD2BC1DD5005F001E400A /* FPPlace */,
+				7261824F1DD6385C008C81E3 /* FPExt */,
 				722AD2BB1DD5005F001E400A /* Products */,
 				D4311896933A70250C29D16F /* Pods */,
 				A502B7025BC751A102F670D7 /* Frameworks */,
@@ -76,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				722AD2BA1DD5005F001E400A /* FPPlace.app */,
+				7261824C1DD6385C008C81E3 /* FPExt.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,32 +122,41 @@
 		722AD2BC1DD5005F001E400A /* FPPlace */ = {
 			isa = PBXGroup;
 			children = (
+				7261825F1DD638F8008C81E3 /* FPPlace.entitlements */,
 				722AD2BD1DD5005F001E400A /* AppDelegate.swift */,
 				722AD2BF1DD5005F001E400A /* MainTableViewController.swift */,
+				722AD2DB1DD52400001E400A /* VenueTableViewCell.swift */,
+				7261823E1DD533E0008C81E3 /* VenueViewController.swift */,
 				722AD2C11DD5005F001E400A /* Main.storyboard */,
 				722AD2C71DD5005F001E400A /* Assets.xcassets */,
 				722AD2C91DD5005F001E400A /* LaunchScreen.storyboard */,
 				722AD2CC1DD5005F001E400A /* Info.plist */,
+				726182421DD62993008C81E3 /* Model.swift */,
+				726182441DD62C5B008C81E3 /* StoredVenue+CoreDataClass.swift */,
+				726182451DD62C5B008C81E3 /* StoredVenue+CoreDataProperties.swift */,
 				722AD2C41DD5005F001E400A /* FPPlace.xcdatamodeld */,
-				722AD2DB1DD52400001E400A /* VenueTableViewCell.swift */,
 			);
 			path = FPPlace;
 			sourceTree = "<group>";
 		};
-		722AD2D31DD50FA2001E400A /* Products */ = {
+		7261824F1DD6385C008C81E3 /* FPExt */ = {
 			isa = PBXGroup;
 			children = (
-				722AD2D81DD50FA2001E400A /* FoursquareAPIClient.framework */,
-				722AD2DA1DD50FA2001E400A /* Pods_FPPlace.framework */,
+				726182601DD6391E008C81E3 /* FPExt.entitlements */,
+				726182501DD6385C008C81E3 /* MessagesViewController.swift */,
+				726182521DD6385C008C81E3 /* MainInterface.storyboard */,
+				726182551DD6385C008C81E3 /* Assets.xcassets */,
+				726182571DD6385C008C81E3 /* Info.plist */,
+				726182611DD63B21008C81E3 /* VenuesTableViewController.swift */,
 			);
-			name = Products;
+			path = FPExt;
 			sourceTree = "<group>";
 		};
 		A502B7025BC751A102F670D7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				722AD2D21DD50FA2001E400A /* Pods.xcodeproj */,
 				DDA6798C775E745C2DC69A2D /* Pods_FPPlace.framework */,
+				7261824D1DD6385C008C81E3 /* Messages.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -135,15 +183,34 @@
 				722AD2B81DD5005F001E400A /* Resources */,
 				2116172A77A6B3080E1ABEB4 /* [CP] Embed Pods Frameworks */,
 				E1A7C00B046A6EAC1834AE69 /* [CP] Copy Pods Resources */,
+				7261825E1DD6385C008C81E3 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				726182591DD6385C008C81E3 /* PBXTargetDependency */,
 			);
 			name = FPPlace;
 			productName = FPPlace;
 			productReference = 722AD2BA1DD5005F001E400A /* FPPlace.app */;
 			productType = "com.apple.product-type.application";
+		};
+		7261824B1DD6385C008C81E3 /* FPExt */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7261825B1DD6385C008C81E3 /* Build configuration list for PBXNativeTarget "FPExt" */;
+			buildPhases = (
+				726182481DD6385C008C81E3 /* Sources */,
+				726182491DD6385C008C81E3 /* Frameworks */,
+				7261824A1DD6385C008C81E3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FPExt;
+			productName = FPExt;
+			productReference = 7261824C1DD6385C008C81E3 /* FPExt.appex */;
+			productType = "com.apple.product-type.app-extension.messages";
 		};
 /* End PBXNativeTarget section */
 
@@ -157,7 +224,23 @@
 				TargetAttributes = {
 					722AD2B91DD5005F001E400A = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = H25Y4QNT7W;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					7261824B1DD6385C008C81E3 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = H25Y4QNT7W;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -172,35 +255,13 @@
 			mainGroup = 722AD2B11DD5005F001E400A;
 			productRefGroup = 722AD2BB1DD5005F001E400A /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 722AD2D31DD50FA2001E400A /* Products */;
-					ProjectRef = 722AD2D21DD50FA2001E400A /* Pods.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				722AD2B91DD5005F001E400A /* FPPlace */,
+				7261824B1DD6385C008C81E3 /* FPExt */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		722AD2D81DD50FA2001E400A /* FoursquareAPIClient.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = FoursquareAPIClient.framework;
-			remoteRef = 722AD2D71DD50FA2001E400A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		722AD2DA1DD50FA2001E400A /* Pods_FPPlace.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Pods_FPPlace.framework;
-			remoteRef = 722AD2D91DD50FA2001E400A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		722AD2B81DD5005F001E400A /* Resources */ = {
@@ -210,6 +271,15 @@
 				722AD2CB1DD5005F001E400A /* LaunchScreen.storyboard in Resources */,
 				722AD2C81DD5005F001E400A /* Assets.xcassets in Resources */,
 				722AD2C31DD5005F001E400A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7261824A1DD6385C008C81E3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				726182561DD6385C008C81E3 /* Assets.xcassets in Resources */,
+				726182541DD6385C008C81E3 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,13 +339,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				722AD2C01DD5005F001E400A /* MainTableViewController.swift in Sources */,
+				7261823F1DD533E0008C81E3 /* VenueViewController.swift in Sources */,
 				722AD2DC1DD52400001E400A /* VenueTableViewCell.swift in Sources */,
+				726182431DD62993008C81E3 /* Model.swift in Sources */,
 				722AD2C61DD5005F001E400A /* FPPlace.xcdatamodeld in Sources */,
 				722AD2BE1DD5005F001E400A /* AppDelegate.swift in Sources */,
+				726182471DD62C5B008C81E3 /* StoredVenue+CoreDataProperties.swift in Sources */,
+				726182461DD62C5B008C81E3 /* StoredVenue+CoreDataClass.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		726182481DD6385C008C81E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				726182511DD6385C008C81E3 /* MessagesViewController.swift in Sources */,
+				726182621DD63B21008C81E3 /* VenuesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		726182591DD6385C008C81E3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7261824B1DD6385C008C81E3 /* FPExt */;
+			targetProxy = 726182581DD6385C008C81E3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		722AD2C11DD5005F001E400A /* Main.storyboard */ = {
@@ -292,6 +383,14 @@
 				722AD2CA1DD5005F001E400A /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		726182521DD6385C008C81E3 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				726182531DD6385C008C81E3 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -394,7 +493,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3D7C76DB3476B01BF6294F90 /* Pods-FPPlace.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FPPlace/FPPlace.entitlements;
+				DEVELOPMENT_TEAM = H25Y4QNT7W;
 				INFOPLIST_FILE = FPPlace/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yellowstranger.FPPlace;
@@ -407,11 +509,44 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 015B7C7DE8357A35349370E9 /* Pods-FPPlace.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FPPlace/FPPlace.entitlements;
+				DEVELOPMENT_TEAM = H25Y4QNT7W;
 				INFOPLIST_FILE = FPPlace/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yellowstranger.FPPlace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		7261825C1DD6385C008C81E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_ENTITLEMENTS = FPExt/FPExt.entitlements;
+				DEVELOPMENT_TEAM = H25Y4QNT7W;
+				INFOPLIST_FILE = FPExt/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yellowstranger.FPPlace.FPExt;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		7261825D1DD6385C008C81E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_ENTITLEMENTS = FPExt/FPExt.entitlements;
+				DEVELOPMENT_TEAM = H25Y4QNT7W;
+				INFOPLIST_FILE = FPExt/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yellowstranger.FPPlace.FPExt;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -436,6 +571,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		7261825B1DD6385C008C81E3 /* Build configuration list for PBXNativeTarget "FPExt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7261825C1DD6385C008C81E3 /* Debug */,
+				7261825D1DD6385C008C81E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 

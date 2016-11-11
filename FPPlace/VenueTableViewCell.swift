@@ -13,3 +13,12 @@ class VenueTableViewCell: UITableViewCell {
     @IBOutlet var topLabel: UILabel!
     @IBOutlet var bottomLabel: UILabel!
 }
+
+
+class UpdateTableViewCell: UITableViewCell {
+    var buttonBlock: (()-> Void)?
+    
+    @IBAction func buttonAction(_ sender: Any) {
+        buttonBlock?()
+    }
+}

@@ -27,6 +27,7 @@ class MainTableViewController: UITableViewController, CLLocationManagerDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        venues = Model.sharedInstance.retrieveVenues()
         client = FoursquareAPIClient(clientId: clientID, clientSecret: clientSecret)
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = 100
@@ -35,7 +36,15 @@ class MainTableViewController: UITableViewController, CLLocationManagerDelegate 
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        locationManager.requestLocation()
+        if let delegate = UIApplication.shared.delegate as? AppDelegate {
+            if let venue = delegate.externalVenue {
+                let vvc = storyboard?.instantiateViewController(withIdentifier: "venueVC") as! VenueViewController
+                vvc.venue = venue
+                vvc.client = client
+                navigationController?.pushViewController(vvc, animated: true)
+                delegate.externalVenue = nil
+            }
+        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -48,12 +57,8 @@ class MainTableViewController: UITableViewController, CLLocationManagerDelegate 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            let result = tableView.dequeueReusableCell(withIdentifier: "topCell")!
-            if currentLocation == nil {
-                result.textLabel?.text = "Determining your location"
-            } else {
-                result.textLabel?.text = "Lat: \(currentLocation!.coordinate.latitude), long: \(currentLocation!.coordinate.longitude)"
-            }
+            let result = tableView.dequeueReusableCell(withIdentifier: "topCell")! as! UpdateTableViewCell
+            result.buttonBlock = {self.locationManager.requestLocation()}
             return result
         } else {
             let result = tableView.dequeueReusableCell(withIdentifier: "venueCell")! as! VenueTableViewCell
@@ -92,13 +97,16 @@ class MainTableViewController: UITableViewController, CLLocationManagerDelegate 
             do {
                 if let jsonObject = try JSONSerialization.jsonObject(with: theData) as? NSDictionary {
                     if let theVenues = (jsonObject["response"] as? NSDictionary)?["venues"] as? Array<NSDictionary> {
+                        self.venues.removeAll()
                         for item in theVenues {
                             let name = item["name"] as? String
                             let address = (item["location"] as? NSDictionary)?["address"] as? String
                             let id = item["id"] as? String
                             self.venues.append(Venue(name: name , address: address , id: id ))
                         }
-                        //print("\(theVenues)")
+                        DispatchQueue.main.async {
+                            self.saveTop5()
+                        }
                     }
                 }
                 
@@ -111,5 +119,22 @@ class MainTableViewController: UITableViewController, CLLocationManagerDelegate 
         }
     }
     
+    func saveTop5() {
+        Model.sharedInstance.clearVenues()
+        if venues.count < 6 {
+            Model.sharedInstance.store(venues)
+        } else {
+            let topArray = Array(venues[0...4])
+            Model.sharedInstance.store(topArray)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let cell = sender as? VenueTableViewCell else {return}
+        if let theView = segue.destination as? VenueViewController {
+            theView.venue = venues[(tableView.indexPath(for: cell)!.row - 1)]
+            theView.client = client
+        }
+    }
 }
 
